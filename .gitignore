@@ -4,3 +4,5 @@ dist/js
 tmp/
 .idea
 *.iml
+coverage
+
