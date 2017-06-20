@@ -2,9 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="33eaac19-1b28-4ace-b4a9-ddcc84f3f91e" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/runConfigurations/app.xml" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -282,7 +279,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1497984478000</updated>
-      <workItem from="1497984479396" duration="462000" />
+      <workItem from="1497984479396" duration="507000" />
     </task>
     <task id="LOCAL-00001" summary="remove ide files">
       <created>1497984741456</created>
@@ -305,7 +302,14 @@
       <option name="project" value="LOCAL" />
       <updated>1497984906285</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="remove ide files">
+      <created>1497984946274</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1497984946274</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -314,7 +318,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="462000" />
+    <option name="totallyTimeSpent" value="507000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-2301" y="45" width="1749" height="1035" extended-state="0" />
