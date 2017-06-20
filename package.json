@@ -1,5 +1,5 @@
 {
-  "name": "chrome-extension-typescript",
+  "name": "chrome-extension-seed",
   "version": "1.0.0",
   "description": "chrome-extension-typescript",
   "main": "index.js",
@@ -12,16 +12,16 @@
     "esLint": "./node_modules/eslint/bin/eslint.js ./lib/*.js",
     "tsLint": "./node_modules/tslint/bin/tslint --project tsconfig.json"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "apium",
+  "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/chibat/chrome-extension-typescript-starter.git"
+    "url": "https://github.com/xavi-reloaded/chrome-extension-seed.git"
   },
   "dependencies": {
+    "gulp": "^3.9.1",
     "jquery": "~3.2.1",
     "moment": "~2.18.1",
-    "gulp": "^3.9.1",
     "karma-phantomjs-launcher": "^1.0.2"
   },
   "devDependencies": {
