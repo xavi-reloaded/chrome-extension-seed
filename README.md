@@ -1,23 +1,7 @@
-# Chrome Extension TypeScript Starter
+# Chrome Extension TypeScript Seed
 
-Chrome Extension, TypeScript and Visual Studio Code
+Chrome Extension with TypeScript
 
-## Prerequisites
-
-* [node + npm](https://nodejs.org/) (Current Version)
-
-## Includes the following
-
-* TypeScript
-* Webpack
-* Moment.js
-* jQuery
-* Example Code
-    * Chrome Storage
-    * Options Version 2
-    * content script
-    * count up badge number
-    * background
 
 ## Project Structure
 
