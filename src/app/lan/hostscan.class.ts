@@ -3,7 +3,7 @@ import {HostProbe} from "./hostprobe.class";
 export class HostScan {
 
     public responses = [];
-    public batchSize: number = 255;
+    public batchSize: number = 50;
     public batchDelay: number = 150;
 
 
