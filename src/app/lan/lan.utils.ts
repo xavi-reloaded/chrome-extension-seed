@@ -1,3 +1,4 @@
+import {LanObject} from "./lan.object";
 export class LanUtils {
 
     static each(obj, cb) {
@@ -15,4 +16,7 @@ export class LanUtils {
         return range;
     }
 
+    static getIpWithUpState(addrs: Array<LanObject>) {
+        return addrs.filter(lanObject => lanObject.state=='up');
+    }
 }

@@ -1,5 +1,6 @@
 import { HostScan } from "../../../src/app/lan/hostscan.class";
 import {LanUtils} from "../../../src/app/lan/lan.utils";
+import {LanObject} from "../../../src/app/lan/lan.object";
 
 
 describe("HostScan", () => {
@@ -36,36 +37,34 @@ describe("HostScan", () => {
 
         // BUGGAKEN WAPO ! CUANDO LA IP NO ES ACCESIBLE SE CUELTA
         it(" should return state down when ip not available", (done) => {
-            // sut = new HostScan(['192.168.123.123']);
-            // sut.start({
-            //     stream: function(address, state, deltat) {
-            //         console.log("Host "+address+" is "+state);
-            //         expect(state).toBe('timeout');
-            //         done();
-            //     },
-            //     complete: function(results) {
-            //         done();
-            //     }
-            // });
-            done();
+            sut = new HostScan(['192.168.123.111']);
+            sut.start({
+                stream: function(address, state, deltat) {
+                    console.log("Host "+address+" is "+state);
+                    expect(state).toBe('timeout');
+                    done();
+                },
+                complete: function(results) {
+                    done();
+                }
+            });
         });
 
-        // it("should work with a full range of ip's", (done) => {
+        it("should work with a full range of ip's", (done) => {
 
-            // var fullRange = LanUtils.getIpRange('192.168.0.100');
-            // sut = new HostScan(fullRange.splice(0,110)); // looks like timeout of karma dies
-            // sut.start({
-            //     stream: function(address, state, deltat) {
-            //         console.log("Host "+address+" is "+state);
-            //     },
-            //     complete: function(results) {
-            //         console.log("Complete!");
-            //         expect(results[0].state).toBe('up');
-            //         done();
-            //     }
-            // });
-        // });
-
+            var fullRange = LanUtils.getIpRange('192.168.0.100');
+            sut = new HostScan(fullRange);
+            sut.start({
+                stream: function(address, state, deltat) {
+                    // console.log("Host "+address+" is "+state);
+                },
+                complete: function(results) {
+                    console.log("Complete!");
+                    expect(results[0].state).toBe('up');
+                    done();
+                }
+            });
+        });
 
     })
 

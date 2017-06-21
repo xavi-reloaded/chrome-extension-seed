@@ -1,4 +1,5 @@
 import { LanUtils } from "../../../src/app/lan/lan.utils";
+import {LanObject} from "../../../src/app/lan/lan.object";
 
 
 describe("Lan Utils", () => {
@@ -10,8 +11,15 @@ describe("Lan Utils", () => {
         });
 
 
-        it("should return ip device when UIID corresponds to an available device", () => {
+        it("should return only ip with state 'up'", () => {
+            let obj : Array<LanObject> = new Array;
+            obj.push(new LanObject('192.168.0.1','timeout',''));
+            obj.push(new LanObject('192.168.0.100','up',''));
+            obj.push(new LanObject('192.168.0.12','timeout',''));
+            let actual = LanUtils.getIpWithUpState(obj);
 
+            expect(actual.length).toEqual(1);
+            expect(actual[0].state).toEqual('up');
         });
 
 
