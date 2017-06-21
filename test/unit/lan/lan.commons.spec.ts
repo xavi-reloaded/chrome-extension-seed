@@ -1,4 +1,4 @@
-import { LanCommons } from "../../src/app/lan.commons";
+import { LanCommons } from "../../../src/app/lan/lan.commons";
 
 
 describe("Lan Commons", () => {

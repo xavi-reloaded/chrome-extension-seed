@@ -17,7 +17,7 @@ describe("Discover IP", () => {
 
         it("DiscoverByRtc should find LAN ip", (done) => {
             var actual;
-            var RTCPeerConnection = window.webkitRTCPeerConnection || window.mozRTCPeerConnection
+            let RTCPeerConnection = window.webkitRTCPeerConnection || window.mozRTCPeerConnection
             let sut = new DiscoverByRtc(RTCPeerConnection);
             sut.getlocalIp().then(function(data){
                 actual = data.ip;
@@ -26,6 +26,6 @@ describe("Discover IP", () => {
             });
         });
 
-    }).ip
+    })
 
 });
