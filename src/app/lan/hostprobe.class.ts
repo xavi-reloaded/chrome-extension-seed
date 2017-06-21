@@ -10,7 +10,7 @@ export class HostProbe {
 
     private WS_BLOCKED_PORTS_OBJ = {};
     private WS_CHECK_INTERVAL = 10;
-    private TIMEOUT = 2000;
+    private TIMEOUT = 100;
 
 
     constructor(private address: string) {
