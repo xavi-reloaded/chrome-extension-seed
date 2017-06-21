@@ -10,7 +10,6 @@ export class HostScan {
 
     constructor(private addresses: Array<string>,private opts?) {
         if (!addresses) throw "HostProbe needs an address param.";
-        // if (addresses.constructor != Array) addresses = [addresses];
         this.addresses=addresses;
     }
 
