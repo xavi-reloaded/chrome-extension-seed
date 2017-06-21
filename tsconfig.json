@@ -1,18 +1,13 @@
 {
-    "compileOnSave": false,
     "compilerOptions": {
         "module": "commonjs",
         "target": "es6",
-        "noImplicitAny": true,
-        "sourceMap": true,
-        "rootDir": "src",
+        "noImplicitAny": false,
+        "sourceMap": false,
         "outDir": "dist/js",
-        "noEmitOnError": true,
-        "types" : [
-            "jasmine"
-        ]
+        "noEmitOnError": true
     },
-    "exclude": [
-        "node_modules"
+    "include": [
+        "src/**/*.ts"
     ]
 }
