@@ -22,5 +22,14 @@ describe("Lan Utils", () => {
             expect(actual[0].state).toEqual('up');
         });
 
+        it("should encrypt", () => {
+            let actual = LanUtils.encrypt("hola");
+            expect(actual).toEqual('aG9sYQ==');
+        });
+
+        it("should rdecrypt", () => {
+            let actual = LanUtils.decrypt('aG9sYQ==');
+            expect(actual).toEqual('hola');
+        });
 
 });

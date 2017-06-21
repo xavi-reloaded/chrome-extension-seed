@@ -19,4 +19,13 @@ export class LanUtils {
     static getIpWithUpState(addrs: Array<LanObject>) {
         return addrs.filter(lanObject => lanObject.state=='up');
     }
+
+
+    static encrypt(str: string) {
+        return btoa(str);
+    }
+
+    static decrypt(str: string) {
+        return atob(str);
+    }
 }
