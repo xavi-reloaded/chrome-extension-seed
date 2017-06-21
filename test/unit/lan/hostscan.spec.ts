@@ -14,7 +14,6 @@ describe("HostScan", () => {
             sut.start({});
             let actual = sut.getResults();
             expect(actual).not.toBe(null);
-            window.console.log('response is: '+actual);
         });
 
 
