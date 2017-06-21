@@ -10,7 +10,7 @@ export class HostProbe {
 
     private WS_BLOCKED_PORTS_OBJ = {};
     private WS_CHECK_INTERVAL = 10;
-    private TIMEOUT = 1000;
+    private TIMEOUT = 700;
 
 
     constructor(private address: string) {
@@ -24,16 +24,49 @@ export class HostProbe {
 
 
     public fire(callback) {
+        // this._sendWebSocketRequest(callback);
         // skip blocked ports
-        let matches = this.address.match(/\:(\d+)$/) || ['', '80'];
-        let port = parseInt(matches[1], 10);
-        // feature detect and run
-        if ('WebSocket' in window && !this._illegalWebSocketPort(port)) {
-            this._sendWebSocketRequest(callback);
-        } else {
-            this._sendImgRequest(callback);
-        }
+        // let matches = this.address.match(/\:(\d+)$/) || ['', '80'];
+        // let port = parseInt(matches[1], 10);
+        this._sendImgRequest(callback);
+        // // feature detect and run
+        // if ('WebSocket' in window && !this._illegalWebSocketPort(port)) {
+        //     this._sendWebSocketRequest(callback);
+        // } else {
+        //     this._sendImgRequest(callback);
+        // }
     }
+
+
+    public _sendImgRequest(callback) {
+        // create the image object and attempt to load from #src
+        var clearme = null; // for holding a timeout ref
+        var startTime = new Date();
+        var img = new Image();
+        var delta = function() { return (+new Date()) - +startTime; };
+
+        let completed = function() {
+            if (img) {
+                img = null;
+                clearTimeout(clearme);
+                if (callback) callback('up', delta());
+                return;
+            }
+        };
+
+        let checkTimeout = function() {
+            if (img) {
+                img = null;
+                if (callback) callback('timeout', delta());
+            }
+        };
+
+        // if the request takes to long, report 'timeout' state
+        clearme = setTimeout(checkTimeout, this.TIMEOUT);
+        // trigger the request
+        img.onload = img.onerror = completed; // TODO: ensure this works in IE.
+        img.src = window.location.protocol + '//' + this.address;
+    };
 
     public _illegalWebSocketPort(port) {
         return this.WS_BLOCKED_PORTS_OBJ[''+port] || false;
@@ -66,34 +99,5 @@ export class HostProbe {
         setTimeout(check_socket, this.WS_CHECK_INTERVAL);
     };
 
-    public _sendImgRequest(callback) {
-        // create the image object and attempt to load from #src
-        var clearme = null; // for holding a timeout ref
-        var startTime = new Date();
-        var img = new Image();
-        var delta = function() { return (+new Date()) - +startTime; };
-
-        let completed = function() {
-            if (img) {
-                img = null;
-                clearTimeout(clearme);
-                if (callback) callback('up', delta());
-                return;
-            }
-        };
-
-        let checkTimeout = function() {
-            if (img) {
-                img = null;
-                if (callback) callback('timeout', delta());
-            }
-        };
-
-        // if the request takes to long, report 'timeout' state
-        clearme = setTimeout(checkTimeout, this.TIMEOUT);
-        // trigger the request
-        img.onload = img.onerror = completed; // TODO: ensure this works in IE.
-        img.src = window.location.protocol + '//' + this.address;
-    };
 
 }
