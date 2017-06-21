@@ -4,6 +4,7 @@ import { HostScan } from "../../../src/app/lan/hostscan.class";
 describe("HostScan", () => {
 
     describe("start", () => {
+
         let sut;
 
         beforeEach(function() {
@@ -15,7 +16,6 @@ describe("HostScan", () => {
             let actual = sut.getResults();
             expect(actual).not.toBe(null);
         });
-
 
         // chech this to learn how to test an async function !!!
         it("results first element should contain state with 'up value '", (done) => {

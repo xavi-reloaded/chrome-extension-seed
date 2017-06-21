@@ -4,6 +4,7 @@ module.exports = function(config) {
         frameworks: ["jasmine", "karma-typescript"],
 
         files: [
+            { pattern: "node_modules/jquery/dist/jquery.js" },
             { pattern: "src/app/**/*.ts" },
             { pattern: "test/unit/**/*.ts" }
         ],
