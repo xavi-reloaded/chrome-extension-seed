@@ -19,7 +19,6 @@ describe("Lan Utils", () => {
                 obj.push(new LanObject('192.168.0.100','up',''));
                 obj.push(new LanObject('192.168.0.12','timeout',''));
                 let actual = LanUtils.getIpWithUpState(obj);
-
                 expect(actual.length).toEqual(1);
                 expect(actual[0].state).toEqual('up');
 

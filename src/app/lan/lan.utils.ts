@@ -17,7 +17,7 @@ export class LanUtils {
     }
 
     static getIpWithUpState(addrs: Array<LanObject>) {
-        return addrs.filter(lanObject => lanObject.state=='up');
+        return addrs.filter(obj => obj.state == 'up');
     }
 
 
