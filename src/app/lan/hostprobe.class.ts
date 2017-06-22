@@ -9,8 +9,8 @@ export class HostProbe {
     995,2049,4045,6000];
 
     private WS_BLOCKED_PORTS_OBJ = {};
-    private WS_CHECK_INTERVAL = 10;
-    private TIMEOUT = 700;
+    private WS_CHECK_INTERVAL = 20;
+    private TIMEOUT = 1000;
 
 
     constructor(private address: string) {

@@ -6,7 +6,8 @@ module.exports = function(config) {
         files: [
             { pattern: "node_modules/jquery/dist/jquery.js" },
             { pattern: "src/app/**/*.ts" },
-            { pattern: "test/unit/**/*.ts" }
+            // { pattern: "test/unit/**/*.ts" }
+            { pattern: "test/unit/lan/lan.commons.spec.ts" }
         ],
 
         preprocessors: {

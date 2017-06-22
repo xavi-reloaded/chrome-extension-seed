@@ -7,15 +7,15 @@ describe("Lan Commons", () => {
         let sut;
 
         beforeEach(function() {
-            sut = new LanCommons();
+            let RTCPeerConnection = window.webkitRTCPeerConnection || window.mozRTCPeerConnection;
+            sut = new LanCommons(RTCPeerConnection);
         });
 
         it("should return empty string when UIID is not informed", (done) => {
-            // sut.getDeviceIpFromUIID('SOMEUIID').then(function(data){
-            //     expect(data).toEqual("");
-            //     done();
-            // })
-done();
+            sut.getDeviceIpFromUIID('SOMEUIID').then(function(data){
+                expect(data).toEqual("");
+                done();
+            })
         });
 
 
