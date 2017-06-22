@@ -28,10 +28,10 @@ export class DiscoverByRtc implements DiscoverIpService {
 
     run(callback) {
 
-        var RTCPeerConnection = window.webkitRTCPeerConnection || window.mozRTCPeerConnection;
+        // var RTCPeerConnection = window.webkitRTCPeerConnection || window.mozRTCPeerConnection;
         var addrs = { "0.0.0.0": false };
 
-        var rtc = new RTCPeerConnection({iceServers: []});
+        var rtc = new this.RTCPeerConnection({iceServers: []});
         rtc.createDataChannel('', {reliable:false});
 
         rtc.onicecandidate = function (evt) {

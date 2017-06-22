@@ -51,8 +51,8 @@ export class LanCommons implements IDevice {
                                 window.console.info('not found '+url);
                             }
                         });
-
                     });
+
                 }
             });
         });
