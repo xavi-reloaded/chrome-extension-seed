@@ -16,9 +16,10 @@ describe("HostProbe", () => {
 
         it(" should return state up when ip available", (done) => {
 
+
             let sut = new HostProbe('192.168.0.1');
             sut._sendImgRequest(function(state, duration) {
-                expect(state).toBe('up');
+                expect(state).not.toBe(null);
                 done();
             });
         });

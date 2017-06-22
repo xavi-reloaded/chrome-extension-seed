@@ -10,7 +10,7 @@ describe("Discover IP", () => {
             let sut = new DiscoverByWebIpinfo();
             sut.getlocalIp().done(function(data){
                 actual = data.ip;
-                expect(actual).toBe('109.111.96.243');
+                expect(actual).not.toBe(null);
                 done();
             });
         });
@@ -19,9 +19,20 @@ describe("Discover IP", () => {
             var actual;
             let RTCPeerConnection = window.webkitRTCPeerConnection || window.mozRTCPeerConnection;
             let sut = new DiscoverByRtc(RTCPeerConnection);
+
+            function isLocalIp(ip: string) {
+                let net:number = +ip.substring(0,ip.indexOf('.'));
+                switch (net) {
+                    case 192: return true;
+                    case 172: return true;
+                    case 10: return true;
+                }
+                return false;
+            }
+
             sut.getlocalIp().then(function(data){
                 actual = data.ip;
-                expect(actual).toBe('192.168.0.100');
+                expect(true).toBe(isLocalIp(actual));
                 done();
             });
         });
