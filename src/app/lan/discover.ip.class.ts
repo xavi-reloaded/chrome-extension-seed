@@ -1,4 +1,4 @@
-import {DiscoverIpService} from "./discover.ip.interface";
+import {DiscoverIpService} from "./lan.interface";
 
 export class DiscoverIp {
 

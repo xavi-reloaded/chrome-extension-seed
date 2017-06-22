@@ -11,7 +11,9 @@ describe("Lan Utils", () => {
         });
 
         describe("getIpWithUpState ", () => {
+
             it("should return only ip with state 'up'", () => {
+
                 let obj : Array<LanObject> = new Array;
                 obj.push(new LanObject('192.168.0.1','timeout',''));
                 obj.push(new LanObject('192.168.0.100','up',''));
@@ -20,9 +22,11 @@ describe("Lan Utils", () => {
 
                 expect(actual.length).toEqual(1);
                 expect(actual[0].state).toEqual('up');
+
             });
 
             it("should work with result Array", () => {
+
                 let obj : Array<any> = new Array;
                 obj.push({ address: 'asdf', state: 'up', duration: '1132' });
                 obj.push({ address: 'asdf', state: 'up', duration: '1132' });
@@ -33,12 +37,18 @@ describe("Lan Utils", () => {
 
                 expect(actual.length).toEqual(4);
                 expect(actual[0].state).toEqual('up');
+
             });
         });
 
         it("should encrypt", () => {
             let actual = LanUtils.encrypt("hola");
             expect(actual).toEqual('aG9sYQ==');
+        });
+
+        it("should encrypt", () => {
+            let actual = LanUtils.encrypt("user|||pass");
+            expect(actual).toEqual('dXNlcnx8fHBhc3M=');
         });
 
         it("should rdecrypt", () => {

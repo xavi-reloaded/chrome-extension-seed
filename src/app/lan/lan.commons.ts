@@ -2,8 +2,9 @@ import {DiscoverByRtc} from "./discover.ip.implementations";
 import {LanUtils} from "./lan.utils";
 import {HostScan} from "./hostscan.class";
 import {LanObject} from "./lan.object";
+import {IDevice} from "./lan.interface";
 
-export class LanCommons {
+export class LanCommons implements IDevice {
 
     constructor() {}
 
@@ -28,22 +29,23 @@ export class LanCommons {
                     var ipCandidates = LanUtils.getIpWithUpState(tmp);
                     window.console.info('FINISHED: RETRIEVING URL for '+results.length);
                     window.console.info('FINISHED: RETRIEVING URL for '+ipCandidates.length);
-                    ipCandidates.forEach(function(candidate){
-                        let url = 'http://'+candidate.address+'/'+UIID;
-                        window.console.info('try to get '+url);
-                        let request = $.ajax({
-                            dataType: "json",
-                            url: url,
-                            data: UIID,
-                            success: function( ) { def.resolve({ ip:candidate.address }); },
-                            timeout: 500
-                        }).fail( function( xhr, status ) {
-                            if( status == "timeout" ) {
-                                window.console.info('not found '+url);
-                            }
-                        });
 
-                    });
+                    // ipCandidates.forEach(function(candidate){
+                    //     let url = 'http://'+candidate.address+'/'+UIID;
+                    //     window.console.info('try to get '+url);
+                    //     let request = $.ajax({
+                    //         dataType: "json",
+                    //         url: url,
+                    //         data: UIID,
+                    //         success: function( ) { def.resolve({ ip:candidate.address }); },
+                    //         timeout: 500
+                    //     }).fail( function( xhr, status ) {
+                    //         if( status == "timeout" ) {
+                    //             window.console.info('not found '+url);
+                    //         }
+                    //     });
+                    //
+                    // });
                 }
             });
         });
