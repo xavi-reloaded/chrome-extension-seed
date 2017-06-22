@@ -13,7 +13,7 @@ module.exports = function(config) {
             "**/*.ts": ["karma-typescript"]
         },
 
-        reporters: ["mocha", "karma-typescript"],
+        reporters: ["progress", "karma-typescript"], //mocha for more detailed
 
         browsers: ["Chrome"]
     });

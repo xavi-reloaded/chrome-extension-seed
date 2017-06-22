@@ -1,8 +1,11 @@
 
 export class LanObject {
+    address: string;
+    state: string;
+    duration: string;
 
-    constructor(private address: string,
-                private state: string,
-                private duration: string) {}
+    constructor(address: string,
+                state: string,
+                duration: string) {}
 
 }

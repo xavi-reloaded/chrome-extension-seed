@@ -10,16 +10,30 @@ describe("Lan Utils", () => {
             expect(actual[0]).toEqual('192.168.0.0');
         });
 
+        describe("getIpWithUpState ", () => {
+            it("should return only ip with state 'up'", () => {
+                let obj : Array<LanObject> = new Array;
+                obj.push(new LanObject('192.168.0.1','timeout',''));
+                obj.push(new LanObject('192.168.0.100','up',''));
+                obj.push(new LanObject('192.168.0.12','timeout',''));
+                let actual = LanUtils.getIpWithUpState(obj);
 
-        it("should return only ip with state 'up'", () => {
-            let obj : Array<LanObject> = new Array;
-            obj.push(new LanObject('192.168.0.1','timeout',''));
-            obj.push(new LanObject('192.168.0.100','up',''));
-            obj.push(new LanObject('192.168.0.12','timeout',''));
-            let actual = LanUtils.getIpWithUpState(obj);
+                expect(actual.length).toEqual(1);
+                expect(actual[0].state).toEqual('up');
+            });
 
-            expect(actual.length).toEqual(1);
-            expect(actual[0].state).toEqual('up');
+            it("should work with result Array", () => {
+                let obj : Array<any> = new Array;
+                obj.push({ address: 'asdf', state: 'up', duration: '1132' });
+                obj.push({ address: 'asdf', state: 'up', duration: '1132' });
+                obj.push({ address: 'asdf', state: 'up', duration: '1132' });
+                obj.push({ address: 'asdf', state: 'timeout', duration: '1132' });
+                obj.push({ address: 'asdf', state: 'up', duration: '1132' });
+                let actual = LanUtils.getIpWithUpState(obj);
+
+                expect(actual.length).toEqual(4);
+                expect(actual[0].state).toEqual('up');
+            });
         });
 
         it("should encrypt", () => {

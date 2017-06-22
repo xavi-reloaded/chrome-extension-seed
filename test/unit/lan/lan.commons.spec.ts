@@ -10,26 +10,14 @@ describe("Lan Commons", () => {
             sut = new LanCommons();
         });
 
-        it("should return empty string when UIID is not informed", () => {
-            expect(sut.getDeviceIpFromUIID()).toEqual("");
-        });
-
-
-        it("should return ip device when UIID corresponds to an available device", () => {
-
-        });
-
-        it("", () => {
+        it("should return empty string when UIID is not informed", (done) => {
+            sut.getDeviceIpFromUIID('SOMEUIID').then(function(data){
+                expect(data).toEqual("");
+                done();
+            })
 
         });
 
-        it("", () => {
-
-        });
-
-        it("", () => {
-
-        });
 
     })
 
