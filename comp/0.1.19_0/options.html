@@ -1,0 +1,84 @@
+<html>
+	<head>
+		<!--
+			Copyright 2011 - Kenneth Henderick
+			Website: http://www.ketronic.be
+
+			This file is part of UsePass.
+
+			UsePass is free software: you can redistribute it and/or modify
+			it under the terms of the GNU General Public License as published by
+			the Free Software Foundation, either version 3 of the License, or
+			(at your option) any later version.
+
+			UsePass is distributed in the hope that it will be useful,
+			but WITHOUT ANY WARRANTY; without even the implied warranty of
+			MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+			GNU General Public License for more details.
+
+			You should have received a copy of the GNU General Public License
+			along with UsePass.  If not, see <http://www.gnu.org/licenses/>.
+		-->
+		<title>UsePass options</title>
+		<style type="text/css">
+			body
+			{
+				font-family: arial;
+				font-size: 0.75em;
+				background-image: url('/images/usepass.png');
+				background-repeat: no-repeat;
+				background-attachment: fixed;
+				background-position: right top;
+			}
+			ul
+			{
+				margin-top: 0px;
+				margin-bottom: 0px;
+			}
+			li
+			{
+				padding: 0px;
+				margin: 0px;
+			}
+		</style>
+		<script type="text/javascript" src="js/settings.js"></script>
+		<script type="text/javascript" src="js/passpackhandler.js"></script>
+		<script type="text/javascript" src="js/keyboardhandler.js"></script>
+		<script type="text/javascript" src="js/extensionhelper.js"></script>
+		<script type="text/javascript" src="js/functions.js"></script>
+	</head>
+	<body>
+		<h1><img src="icons/icon.png" /> Information</h1>
+		You are running version: <b><span id="currentversion">0.0.0.0</span></b>.
+		<span id="newversionwarning"></span>
+		<h1><img src="icons/icon.png" /> Currently configured accounts:</h1>
+		<span id="passpackkey"><i>no account configured</i><br /></span>
+		<br />[<a href="#" id="removeaccounts">Remove all accounts</a>]<br />
+
+		<h1><img src="icons/icon.png" /> General options</h1>
+		<ul>
+			<li><input type="checkbox" id="autoconfig" /><label for="autoconfig">Enable auto configuration</label></li>
+			<li>Login keyboard shortcut: <input type="text" id="speedkeys"/> (press DEL to remove/disable) - Current status: <span id="keyactive">inactive</span></li>
+		</ul>
+		<br />[<a href="#" id="savesettings">Save settings</a>]
+		<br />[<a href="#" id="loadsettings">Reload settings</a>]
+		<br />When you change one of the options, you might need to refresh some pages or restart the browser for the changes to take effect.
+
+		<h1><img src="icons/icon.png" /> Help? Bugs? Suggestions?</h1>
+		Go to the UsePass website: <a href="http://www.ketronic.be/usepass/">http://www.ketronic.be/usepass</a>
+
+		<h1><img src="icons/icon.png" /> Like UsePass?</h1>
+		Do you like this extension? Consider buying me a beer.<br /><br />
+		<form action="https://www.paypal.com/cgi-bin/webscr" method="post">
+			<input type="hidden" name="cmd" value="_s-xclick">
+			<input type="hidden" name="encrypted" value="-----BEGIN PKCS7-----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-----END PKCS7-----">
+			<input type="image" src="https://www.paypalobjects.com/WEBSCR-640-20110306-1/en_US/BE/i/btn/btn_donateCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+			<img alt="" border="0" src="https://www.paypalobjects.com/WEBSCR-640-20110306-1/en_US/i/scr/pixel.gif" width="1" height="1">
+		</form>
+
+		<input type="checkbox" id="debug"/><label for="debug">Show raw settings (debug)</label>
+		<div id="raw"></div>
+
+		<script type="text/javascript" src="js/page_options.js"></script>
+	</body>
+</html>

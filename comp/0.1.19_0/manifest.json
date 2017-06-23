@@ -1,0 +1,26 @@
+{
+   "background": {
+      "page": "usepass.html"
+   },
+   "browser_action": {
+      "default_icon": "icons/icon.png"
+   },
+   "content_scripts": [ {
+      "js": [ "js/settings.js", "js/functions.js", "js/contenthelper.js", "js/passpackhandler.js", "js/contentscript.js" ],
+      "matches": [ "http://*/*", "https://*/*" ]
+   } ],
+   "content_security_policy": "script-src 'self' https://ssl.google-analytics.com; object-src 'self'",
+   "description": "UsePass is a chrome extension to replace the bookmark button of Passpack.",
+   "icons": {
+      "128": "icons/icon128.png",
+      "16": "icons/icon.png"
+   },
+   "key": "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCXrOnxKwWT6NPlo1l7NLQNoF7nf6dD8sKABViwyE8mKna7pm0Z02gHNWPFlve4wACQVMQCSu0u9k7eQ5mi8+nkeX41rccXP5xhYzTw/F4TS3p1h6FaymNZWyQrtJcOzFZ4VzdEClYX7+AivFTHcQAnUjEyRBt4TdNvuKiaFv7yuQIDAQAB",
+   "manifest_version": 2,
+   "minimum_chrome_version": "5.0.316.0",
+   "name": "UsePass",
+   "options_page": "options.html",
+   "permissions": [ "tabs", "http://*/*", "https://*/*", "contextMenus" ],
+   "update_url": "https://clients2.google.com/service/update2/crx",
+   "version": "0.1.19"
+}
